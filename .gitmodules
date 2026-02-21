@@ -1,3 +1,0 @@
-[submodule "difftest"]
-	path = difftest
-	url = https://gitlab.com/fudan-systa/difftest.git

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计算机组成与体系结构 · 2026 春季</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="course-header">
+    <h1>计算机组成与体系结构</h1>
+    <p class="sub">2026 年春 · 陈辰老师 · TA: 佟铭洋、段光杰、朱程炀</p>
+  </header>
+
+  <nav class="main-nav">
+    <ul>
+      <li><a href="#course">课程信息</a></li>
+      <li><a href="#docs">文档与仓库说明</a></li>
+      <li><a href="#lab1">实验一 Lab1</a></li>
+      <li><a href="#resources">参考资源</a></li>
+    </ul>
+  </nav>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#course">课程信息</a></li>
+          <li><a href="#docs">文档与仓库说明</a></li>
+          <li><a href="#doc-what">各文档用途</a></li>
+          <li><a href="#lab1">实验一 Lab1</a></li>
+          <li><a href="#lab1-goal">Lab1 目标与步骤</a></li>
+          <li><a href="#lab1-submit">Lab1 提交与评分</a></li>
+          <li><a href="#lab1-faq">Lab1 常见问题</a></li>
+          <li><a href="#resources">参考资源</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <section id="course">
+        <h2>课程信息</h2>
+        <p>本课程通过一系列实验，实现一个 RISC-V 五级流水线 CPU 核，并使用 Verilator 仿真与 Difftest 进行验证。实验代码与说明通过 GitHub 仓库与 Wiki 发布。</p>
+
+        <h3>推荐答疑方式</h3>
+        <ul>
+          <li><strong>Issues</strong>：在项目仓库 <a href="https://github.com/26-Arch/26-Arch/issues" target="_blank" rel="noopener">26-Arch/26-Arch</a> 发起</li>
+          <li><strong>微信群聊</strong>：信息量少时使用（不建议私聊，效率不高且容易忽略问题）</li>
+          <li><strong>线下</strong>：周二实验课</li>
+        </ul>
+      </section>
+
+      <section id="docs">
+        <h2>文档与仓库说明</h2>
+        <p>课程材料分为两部分：<strong>代码仓库</strong>（26-Arch）和<strong>Wiki</strong>（说明文档）。请先克隆代码仓库并初始化子模块，再做实验。</p>
+
+        <h3 id="doc-what">各文档分别是用来做什么的</h3>
+        <div class="doc-cards">
+          <div class="doc-card">
+            <strong>Wiki · Home</strong>
+            <p>课程首页：答疑方式、参考文档链接等。</p>
+          </div>
+          <div class="doc-card">
+            <strong>Wiki · Environment</strong>
+            <p>实验环境搭建与介绍：Linux/WSL、Verilator、GTKWave、Vivado 的安装与配置，以及 VS Code 连接、克隆仓库与更新步骤。做实验前请先完成环境搭建。</p>
+          </div>
+          <div class="doc-card">
+            <strong>Wiki · Direction</strong>
+            <p>整体流程与代码编写指南：CPU 与 Difftest 的关系、代码规范、内存总线接口、如何接线与测试、常见问题等。建议在写代码前通读。</p>
+          </div>
+          <div class="doc-card">
+            <strong>Wiki · Lab1</strong>
+            <p>实验一详细说明：目标指令、测试方法、Difftest 接线、波形图生成、提交方式、评分标准、常见问题（如 No rule to make target 'emu'、CBus 报错、Difftest 连接等）。做 Lab1 时以该页为准。</p>
+          </div>
+        </div>
+
+        <h3>如何获取与更新代码</h3>
+        <p>在选定目录下执行：</p>
+        <pre><code>git clone https://github.com/26-Arch/26-Arch.git
+cd 26-Arch
+git submodule update --init --recursive   # 初始化 difftest 子模块</code></pre>
+        <p>每次助教发布新内容后，请先 <code>commit</code> 本地改动，再拉取并合并：</p>
+        <pre><code>git fetch --all
+git merge origin/main
+git submodule update</code></pre>
+        <p class="note">代码需在 <code>vsrc</code> 目录下编写，核心在 <code>vsrc/src/core.sv</code>。不要修改 <code>vsrc</code> 以外的文件，除非你清楚自己在做什么。</p>
+      </section>
+
+      <section id="lab1">
+        <h2>实验一 Lab1</h2>
+        <p>Lab1 要求构建五级流水线 CPU 架构，支持指定指令集并通过 <code>make test-lab1</code> 测试。完整说明（含接线示例、波形图、常见问题）请以 <strong>Wiki · Lab1</strong> 为准。</p>
+        <p><a href="https://github.com/26-Arch/26-Arch/wiki/Lab1" target="_blank" rel="noopener">→ 打开 Wiki Lab1 完整文档</a></p>
+
+        <h3 id="lab1-goal">Lab1 目标与完成步骤</h3>
+        <h4>需要支持的指令</h4>
+        <ul>
+          <li><strong>算术与逻辑</strong>：addi, xori, ori, andi, add, sub, and, or, xor</li>
+          <li><strong>扩展</strong>：addiw, addw, subw</li>
+          <li><strong>选做</strong>：mul, div, divu, rem, remu, mulw, divw, divuw, remw, remuw</li>
+        </ul>
+
+        <h4>建议完成顺序</h4>
+        <ol>
+          <li>按 <strong>Environment</strong> 搭建环境（Linux、Verilator、GTKWave 等），并克隆仓库、执行 <code>make init</code>。</li>
+          <li>阅读 <strong>Direction</strong>：理解 CPU 与内存总线、Difftest 的关系及代码规范。</li>
+          <li>在 <code>vsrc</code> 下实现五级流水线，并按要求连接 Difftest 三个模块（<code>DifftestInstrCommit</code>、<code>DifftestArchIntRegState</code>、<code>DifftestCSRState</code>，CSR 暂可不接）。</li>
+          <li>运行 <code>make test-lab1</code>，在输出中看到 <strong>HIT GOOD TRAP</strong> 即表示通过。</li>
+          <li>调试时可使用 <code>make test-lab1 VOPT="--dump-wave"</code> 生成波形，用 gtkwave 查看；需要截取某段周期时使用 <code>VOPT="--dump-wave -b &lt;begin&gt; -e &lt;end&gt;"</code>。</li>
+        </ol>
+
+        <h3 id="lab1-submit">Lab1 提交与评分</h3>
+        <ul>
+          <li><strong>内容</strong>：包含代码与报告的 zip 压缩包；报告为 PDF。</li>
+          <li><strong>打包</strong>：在主目录下新建 <code>docs</code> 文件夹，在仓库根目录执行 <code>make handin</code>。</li>
+          <li><strong>平台与截止</strong>：Elearning，截止日期 3 月 5 日。</li>
+        </ul>
+        <p>每个实验满分 100 分；迟交扣分，代码无法运行可能扣大部分分数。评分不参考报告长度与美观，但应清晰易读。抄袭将导致该次实验零分并可能面临更严重处罚，请独立完成。</p>
+
+        <h3 id="lab1-faq">Lab1 常见问题摘要</h3>
+        <ul>
+          <li><strong>No rule to make target 'emu'</strong>：在仓库目录下执行 <code>make init</code>。</li>
+          <li><strong>ERROR: Unexpected CBus request modification</strong>：在 <code>iresp.data_ok</code> 为 1 之前不能修改 <code>ireq.valid</code> 或 <code>ireq.addr</code>；等待取指期间保持请求不变。</li>
+          <li><strong>Settle region did not converge</strong>：多为组合逻辑导致信号振荡，检查相关信号；若仍报错可尝试使用低版本 Verilator（见 Wiki Lab1）。</li>
+          <li><strong>Difftest 连接</strong>：原则是「指令提交（valid=1）时其影响恰好生效」。寄存器若在下一拍才写入，需将 <code>valid</code> 延迟一拍或将寄存器用“下一拍”的克隆数组接给 Difftest。详见 Wiki。</li>
+          <li><strong>No instruction commits for 5000 cycles</strong>：检查波形中 <code>valid</code> 是否正常；第一条提交的指令必须是 PCINIT（<code>64'h8000_0000</code>）。</li>
+        </ul>
+        <p>更多细节与 Verilator 安装、Vivado 仿真/上板说明见 <a href="https://github.com/26-Arch/26-Arch/wiki/Lab1" target="_blank" rel="noopener">Wiki · Lab1</a>。</p>
+      </section>
+
+      <section id="resources">
+        <h2>参考资源</h2>
+        <ul>
+          <li>The RISC-V Instruction Set Manual Volume I: <a href="https://riscv.github.io/riscv-isa-manual/snapshot/unprivileged/" target="_blank" rel="noopener">Unprivileged ISA（在线）</a></li>
+          <li>The RISC-V Instruction Set Manual Volume II: <a href="https://riscv.github.io/riscv-isa-manual/snapshot/privileged/" target="_blank" rel="noopener">Privileged Architecture（在线）</a></li>
+          <li>RISC-V 指令集手册中文版（不推荐）：<a href="https://github.com/ISRC-CAS/riscv-isa-manual-cn/tree/master/build" target="_blank" rel="noopener">GitHub</a></li>
+          <li>Online RISC-V Instruction Encoder/Decoder: <a href="https://luplab.gitlab.io/rvcodecjs/" target="_blank" rel="noopener">RISC-V Instruction Encoder/Decoder</a></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>2026 年春 · 陈辰老师《计算机组成与体系结构》 · TA: 佟铭洋、段光杰、朱程炀</p>
+    <p>代码仓库：<a href="https://github.com/26-Arch/26-Arch" target="_blank" rel="noopener">26-Arch/26-Arch</a> · Wiki：<a href="https://github.com/26-Arch/26-Arch/wiki" target="_blank" rel="noopener">26-Arch Wiki</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,303 @@
+/* 美国大学课程网站风格 - 计算机组成与体系结构 2026 */
+
+:root {
+  --bg: #fafafa;
+  --card: #fff;
+  --text: #1a1a1a;
+  --text-muted: #555;
+  --accent: #1e3a5f;
+  --accent-light: #2c5282;
+  --border: #e2e8f0;
+  --code-bg: #f1f5f9;
+  --sidebar-width: 220px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* 顶部课程标题 */
+.course-header {
+  background: var(--accent);
+  color: #fff;
+  padding: 1.5rem 2rem;
+  border-bottom: 3px solid var(--accent-light);
+}
+
+.course-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.course-header .sub {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* 主导航 */
+nav.main-nav {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav.main-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+nav.main-nav a {
+  display: block;
+  padding: 0.85rem 1rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+}
+
+nav.main-nav a:hover {
+  background: var(--bg);
+  border-bottom-color: var(--accent);
+}
+
+/* 主内容区 */
+.layout {
+  display: flex;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+aside.sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  padding: 1.5rem 1rem 2rem 0;
+}
+
+aside.sidebar nav {
+  position: sticky;
+  top: 4rem;
+}
+
+aside.sidebar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+aside.sidebar li {
+  margin-bottom: 0.25rem;
+}
+
+aside.sidebar a {
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+}
+
+aside.sidebar a:hover {
+  color: var(--accent);
+  background: var(--code-bg);
+}
+
+main.content {
+  flex: 1;
+  min-width: 0;
+  padding: 1.5rem 0 3rem;
+}
+
+/* 章节 */
+section {
+  margin-bottom: 2.5rem;
+}
+
+section h2 {
+  font-size: 1.35rem;
+  color: var(--accent);
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+}
+
+section h3 {
+  font-size: 1.1rem;
+  margin: 1.25rem 0 0.5rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+section h4 {
+  font-size: 1rem;
+  margin: 1rem 0 0.4rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+p {
+  margin: 0 0 0.85rem;
+  color: var(--text);
+}
+
+ul, ol {
+  margin: 0 0 0.85rem;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+/* 文档卡片 */
+.doc-cards {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.doc-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+}
+
+.doc-card strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--accent);
+}
+
+.doc-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* 代码与命令 */
+code, kbd {
+  font-family: "SF Mono", "Consolas", "Monaco", "PingFang SC", monospace;
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+pre {
+  margin: 1rem 0;
+  padding: 1rem 1.25rem;
+  background: var(--code-bg);
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* 提示框 */
+.note {
+  background: #eff6ff;
+  border-left: 4px solid var(--accent);
+  padding: 0.85rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0 6px 6px 0;
+}
+
+.note p:last-child { margin-bottom: 0; }
+
+.warning {
+  background: #fef3c7;
+  border-left: 4px solid #d97706;
+  padding: 0.85rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0 6px 6px 0;
+}
+
+/* 表格 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+th {
+  background: var(--code-bg);
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* 链接 */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 页脚 */
+footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* 小屏：隐藏侧栏，保留主内容 */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  aside.sidebar {
+    width: 100%;
+    padding: 0 0 1rem;
+  }
+
+  aside.sidebar nav {
+    position: static;
+  }
+
+  .course-header {
+    padding: 1rem 1.25rem;
+  }
+
+  nav.main-nav {
+    padding: 0 1rem;
+  }
+}
