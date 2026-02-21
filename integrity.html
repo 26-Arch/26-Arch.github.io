@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于学术诚信与抄袭 · 计算机组成与体系结构 2026</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="course-header">
+    <h1>计算机组成与体系结构</h1>
+    <p class="sub">2026 年春 · 陈辰老师 · TA: 佟铭洋、段光杰、朱程炀</p>
+  </header>
+
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">首页</a></li>
+      <li><a href="index.html#course">课程信息</a></li>
+      <li><a href="index.html#docs">文档说明</a></li>
+      <li><a href="index.html#labs">实验</a></li>
+      <li><a href="integrity.html">学术诚信</a></li>
+      <li><a href="index.html#resources">参考资源</a></li>
+    </ul>
+  </nav>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav aria-label="本页目录">
+        <ul class="toc">
+          <li><a href="#why">为什么我们要说这个</a></li>
+          <li><a href="#how-labs-work">本课程实验是怎么设计的</a></li>
+          <li><a href="#how-we-check">我们会怎么查</a></li>
+          <li><a href="#what-happens">认定与后果</a></li>
+          <li><a href="#suggestions">几句实在话</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <section>
+        <h2>关于学术诚信与抄袭</h2>
+        <p>这段话我们写得很直接，不是为了吓唬谁，而是希望你在动手做实验之前就知道规则和底线。把话说清楚，对大家都好。</p>
+      </section>
+
+      <section id="why">
+        <h3>为什么我们要说这个</h3>
+        <p>本学期的实验是一整套「从零搭一个 CPU」的流程，Lab1、Lab2…… 环环相扣，代码风格、模块划分、实现思路都会一路延续下去。也就是说，<strong>你的作业会带着你个人的「实现逻辑」</strong>——这不是随便改几个变量名、换一个地方「参考」一两个 lab 就能糊弄过去的。我们也会认真对待查重和逻辑审查，所以事先把标准讲清楚，既是对独立完成实验的同学的公平，也是对你的提醒。</p>
+      </section>
+
+      <section id="how-labs-work">
+        <h3>本课程实验是怎么设计的</h3>
+        <p>我们的 lab 是<strong>按步骤、从头搭建</strong>的：先有五级流水线，再有冒险处理、访存、异常与中断等等。每一步都建立在前一步的代码和设计之上，所以：</p>
+        <ul>
+          <li>不存在「这个 lab 去 A 找、那个 lab 去 B 找」就能拼出一份看起来像自己做的作业——整体实现逻辑会暴露是否真的自己写过。</li>
+          <li>助教在批改和抽查时，会看你的<strong>实现思路、模块划分、信号命名和代码结构</strong>，而不仅仅是「能不能跑过测试」。</li>
+        </ul>
+        <p>换句话说，我们更在意的是：这份作业是不是你一步步想清楚、写出来的。如果是拼凑或抄袭，很容易在整体逻辑上露出马脚。</p>
+      </section>
+
+      <section id="how-we-check">
+        <h3>我们会怎么查</h3>
+        <p>为了尽可能公平地对待每一份提交，我们会：</p>
+        <ul>
+          <li><strong>主动搜集往年与本课程相关的开源 lab 仓库</strong>（包括但不限于 GitHub、GitLab 等平台），使用爬虫等工具整理成可检索的代码库。</li>
+          <li><strong>在人工判断的基础上，使用 agent 等工具做批量辅助审查</strong>：对比实现逻辑、控制流、数据流和代码结构，而不仅是字符串相似度。</li>
+          <li>重点会看：<strong>多份作业之间是否出现「大部分实现逻辑相同」</strong>的情况——例如只有变量名、注释或少量语法上的差异，而整体设计、模块划分、关键逻辑高度一致。</li>
+        </ul>
+        <p>我们不会只依赖某一种手段，而是结合自动化工具和人工分析，尽量做到有理有据地判断。</p>
+      </section>
+
+      <section id="what-happens">
+        <h3>认定与后果</h3>
+        <p>一旦被认定存在抄袭或大面积雷同（包括但不限于：与往年开源代码、与本届其他同学代码在<strong>实现逻辑上大部分相同</strong>，或仅做变量名替换、格式调整等简单改写）：</p>
+        <ul>
+          <li>该次实验成绩将被<strong>取消</strong>；</li>
+          <li>情节严重者可能影响课程总评，并按规定上报学校处理。</li>
+        </ul>
+        <p>我们不想事后扯皮，所以在这里一次性说清楚：<strong>独立完成、自己动脑动手，是唯一安全且被认可的方式。</strong> 讨论思路可以，照抄代码、照搬实现逻辑不行。</p>
+      </section>
+
+      <section id="suggestions">
+        <h3>几句实在话</h3>
+        <p>做体系结构实验确实不轻松，但正因如此，自己把流水线、冒险、异常一点点理顺、写出来，收获才是实打实的。遇到卡住的地方，可以看课件、查 RISC-V 手册、在 Issues 或群里问助教，也可以和同学<strong>讨论思路</strong>——但落到代码上，请务必自己写。</p>
+        <p>如果你曾经参考过网上的博客或开源代码，请在报告里如实说明参考了哪些部分、自己做了哪些修改和思考；隐瞒或冒充原创，一旦在查重和逻辑审查中被发现，同样会按抄袭处理。</p>
+        <p>希望大家都能在遵守规则的前提下，踏踏实实把这次课学好。有任何不清楚的地方，欢迎在课程群或答疑时问我们。</p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p><a href="index.html">← 返回首页</a></p>
+    <p>2026 年春 · 陈辰老师《计算机组成与体系结构》 · TA: 佟铭洋、段光杰、朱程炀</p>
+    <p>代码仓库：<a href="https://github.com/26-Arch/26-Arch" target="_blank" rel="noopener">26-Arch/26-Arch</a> · Wiki：<a href="https://github.com/26-Arch/26-Arch/wiki" target="_blank" rel="noopener">26-Arch Wiki</a></p>
+  </footer>
+</body>
+</html>
