@@ -122,6 +122,105 @@ aside.sidebar a:hover {
   background: var(--code-bg);
 }
 
+/* 分级目录：一级分组 + 二级子项 */
+.nav-tree {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-group {
+  margin-bottom: 1rem;
+}
+
+.nav-group-title {
+  display: block;
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.5rem;
+  margin-bottom: 0.35rem;
+  border-left: 3px solid var(--accent);
+  padding-left: 0.6rem;
+}
+
+.nav-group ul {
+  padding-left: 1rem;
+  margin: 0;
+  border-left: 1px solid var(--border);
+  margin-left: 0.35rem;
+}
+
+.nav-group ul li {
+  margin-bottom: 0.2rem;
+}
+
+.nav-group ul a {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Lab 列表（首页实验区块） */
+.lab-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.lab-list > li {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.lab-list > li > a {
+  font-size: 1.05rem;
+}
+
+.lab-desc {
+  margin: 0.5rem 0 0 !important;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* 面包屑（Lab 子页） */
+.breadcrumb {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.breadcrumb a {
+  color: var(--accent);
+}
+
+.breadcrumb .sep {
+  margin: 0 0.35rem;
+  color: var(--border);
+}
+
+.breadcrumb span:last-child {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* 子页侧栏目录 */
+.sidebar .toc {
+  padding-left: 0 !important;
+  border-left: none !important;
+  margin-left: 0 !important;
+}
+
+.sidebar .toc li {
+  margin-bottom: 0.35rem;
+}
+
 main.content {
   flex: 1;
   min-width: 0;

@@ -15,24 +15,41 @@
   <nav class="main-nav">
     <ul>
       <li><a href="#course">课程信息</a></li>
-      <li><a href="#docs">文档与仓库说明</a></li>
-      <li><a href="#lab1">实验一 Lab1</a></li>
+      <li><a href="#docs">文档说明</a></li>
+      <li><a href="#labs">实验</a></li>
       <li><a href="#resources">参考资源</a></li>
     </ul>
   </nav>
 
   <div class="layout">
     <aside class="sidebar">
-      <nav>
-        <ul>
-          <li><a href="#course">课程信息</a></li>
-          <li><a href="#docs">文档与仓库说明</a></li>
-          <li><a href="#doc-what">各文档用途</a></li>
-          <li><a href="#lab1">实验一 Lab1</a></li>
-          <li><a href="#lab1-goal">Lab1 目标与步骤</a></li>
-          <li><a href="#lab1-submit">Lab1 提交与评分</a></li>
-          <li><a href="#lab1-faq">Lab1 常见问题</a></li>
-          <li><a href="#resources">参考资源</a></li>
+      <nav aria-label="课程文档目录">
+        <ul class="nav-tree">
+          <li class="nav-group">
+            <span class="nav-group-title">课程信息</span>
+            <ul>
+              <li><a href="#course">课程简介与答疑</a></li>
+            </ul>
+          </li>
+          <li class="nav-group">
+            <span class="nav-group-title">文档说明</span>
+            <ul>
+              <li><a href="#doc-what">各文档用途</a></li>
+              <li><a href="#doc-clone">获取与更新代码</a></li>
+            </ul>
+          </li>
+          <li class="nav-group">
+            <span class="nav-group-title">实验</span>
+            <ul>
+              <li><a href="labs/lab1.html">Lab1 五级流水线 CPU</a></li>
+            </ul>
+          </li>
+          <li class="nav-group">
+            <span class="nav-group-title">参考资源</span>
+            <ul>
+              <li><a href="#resources">RISC-V 手册与工具</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </aside>
@@ -51,7 +68,7 @@
       </section>
 
       <section id="docs">
-        <h2>文档与仓库说明</h2>
+        <h2>文档说明</h2>
         <p>课程材料分为两部分：<strong>代码仓库</strong>（26-Arch）和<strong>Wiki</strong>（说明文档）。请先克隆代码仓库并初始化子模块，再做实验。</p>
 
         <h3 id="doc-what">各文档分别是用来做什么的</h3>
@@ -74,7 +91,7 @@
           </div>
         </div>
 
-        <h3>如何获取与更新代码</h3>
+        <h3 id="doc-clone">如何获取与更新代码</h3>
         <p>在选定目录下执行：</p>
         <pre><code>git clone https://github.com/26-Arch/26-Arch.git
 cd 26-Arch
@@ -86,45 +103,15 @@ git submodule update</code></pre>
         <p class="note">代码需在 <code>vsrc</code> 目录下编写，核心在 <code>vsrc/src/core.sv</code>。不要修改 <code>vsrc</code> 以外的文件，除非你清楚自己在做什么。</p>
       </section>
 
-      <section id="lab1">
-        <h2>实验一 Lab1</h2>
-        <p>Lab1 要求构建五级流水线 CPU 架构，支持指定指令集并通过 <code>make test-lab1</code> 测试。完整说明（含接线示例、波形图、常见问题）请以 <strong>Wiki · Lab1</strong> 为准。</p>
-        <p><a href="https://github.com/26-Arch/26-Arch/wiki/Lab1" target="_blank" rel="noopener">→ 打开 Wiki Lab1 完整文档</a></p>
-
-        <h3 id="lab1-goal">Lab1 目标与完成步骤</h3>
-        <h4>需要支持的指令</h4>
-        <ul>
-          <li><strong>算术与逻辑</strong>：addi, xori, ori, andi, add, sub, and, or, xor</li>
-          <li><strong>扩展</strong>：addiw, addw, subw</li>
-          <li><strong>选做</strong>：mul, div, divu, rem, remu, mulw, divw, divuw, remw, remuw</li>
+      <section id="labs">
+        <h2>实验</h2>
+        <p>实验说明按实验编号分级存放，当前已发布 Lab1。每个实验的详细目标、测试方法、提交与评分见对应页面。</p>
+        <ul class="lab-list">
+          <li>
+            <a href="labs/lab1.html"><strong>Lab1 五级流水线 CPU</strong></a>
+            <p class="lab-desc">构建五级流水线 CPU，支持算术/逻辑与扩展指令，通过 <code>make test-lab1</code> 验证。截止 3 月 5 日。</p>
+          </li>
         </ul>
-
-        <h4>建议完成顺序</h4>
-        <ol>
-          <li>按 <strong>Environment</strong> 搭建环境（Linux、Verilator、GTKWave 等），并克隆仓库、执行 <code>make init</code>。</li>
-          <li>阅读 <strong>Direction</strong>：理解 CPU 与内存总线、Difftest 的关系及代码规范。</li>
-          <li>在 <code>vsrc</code> 下实现五级流水线，并按要求连接 Difftest 三个模块（<code>DifftestInstrCommit</code>、<code>DifftestArchIntRegState</code>、<code>DifftestCSRState</code>，CSR 暂可不接）。</li>
-          <li>运行 <code>make test-lab1</code>，在输出中看到 <strong>HIT GOOD TRAP</strong> 即表示通过。</li>
-          <li>调试时可使用 <code>make test-lab1 VOPT="--dump-wave"</code> 生成波形，用 gtkwave 查看；需要截取某段周期时使用 <code>VOPT="--dump-wave -b &lt;begin&gt; -e &lt;end&gt;"</code>。</li>
-        </ol>
-
-        <h3 id="lab1-submit">Lab1 提交与评分</h3>
-        <ul>
-          <li><strong>内容</strong>：包含代码与报告的 zip 压缩包；报告为 PDF。</li>
-          <li><strong>打包</strong>：在主目录下新建 <code>docs</code> 文件夹，在仓库根目录执行 <code>make handin</code>。</li>
-          <li><strong>平台与截止</strong>：Elearning，截止日期 3 月 5 日。</li>
-        </ul>
-        <p>每个实验满分 100 分；迟交扣分，代码无法运行可能扣大部分分数。评分不参考报告长度与美观，但应清晰易读。抄袭将导致该次实验零分并可能面临更严重处罚，请独立完成。</p>
-
-        <h3 id="lab1-faq">Lab1 常见问题摘要</h3>
-        <ul>
-          <li><strong>No rule to make target 'emu'</strong>：在仓库目录下执行 <code>make init</code>。</li>
-          <li><strong>ERROR: Unexpected CBus request modification</strong>：在 <code>iresp.data_ok</code> 为 1 之前不能修改 <code>ireq.valid</code> 或 <code>ireq.addr</code>；等待取指期间保持请求不变。</li>
-          <li><strong>Settle region did not converge</strong>：多为组合逻辑导致信号振荡，检查相关信号；若仍报错可尝试使用低版本 Verilator（见 Wiki Lab1）。</li>
-          <li><strong>Difftest 连接</strong>：原则是「指令提交（valid=1）时其影响恰好生效」。寄存器若在下一拍才写入，需将 <code>valid</code> 延迟一拍或将寄存器用“下一拍”的克隆数组接给 Difftest。详见 Wiki。</li>
-          <li><strong>No instruction commits for 5000 cycles</strong>：检查波形中 <code>valid</code> 是否正常；第一条提交的指令必须是 PCINIT（<code>64'h8000_0000</code>）。</li>
-        </ul>
-        <p>更多细节与 Verilator 安装、Vivado 仿真/上板说明见 <a href="https://github.com/26-Arch/26-Arch/wiki/Lab1" target="_blank" rel="noopener">Wiki · Lab1</a>。</p>
       </section>
 
       <section id="resources">
