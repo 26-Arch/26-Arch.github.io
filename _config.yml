@@ -1,0 +1,41 @@
+title: 计算机组成与体系结构
+description: 2026 年春 · 陈辰老师 · 五级流水线 CPU 实验
+theme: just-the-docs
+baseurl: ""
+url: "https://26-Arch.github.io"
+
+permalink: pretty
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
+
+search_enabled: true
+heading_anchors: true
+nav_enabled: true
+
+aux_links:
+  "代码仓库":
+    - "https://github.com/26-Arch/26-Arch"
+  "Wiki":
+    - "https://github.com/26-Arch/26-Arch/wiki"
+aux_links_new_tab: true
+
+footer_content: "2026 年春 · 陈辰老师《计算机组成与体系结构》 · TA: 佟铭洋、段光杰、朱程炀"
+
+gh_edit_link: false
+back_to_top: true
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
